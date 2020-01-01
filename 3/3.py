@@ -36,15 +36,16 @@ for idx, wire in enumerate(wires):
                 wire_map[idx][p_key] = str(steps) 
 
 # pprint(wire_map)
-with open("wire_map.txt","w") as f:
-    f.write(str(wire_map))
+# wire_map_intersections = set.intersection(*wire_map.values())
+# pprint(wire_map_intersections)
+
+# with open("wire_map.txt","w") as f:
+#     f.write(str(wire_map))
 
 wire_map_intersections = set(wire_map[0].keys())
 for wire in wire_map:
     wire_map_intersections &= set(wire_map[wire].keys())
 
-# wire_map_intersections = set.intersection(*wire_map.values())
-# pprint(wire_map_intersections)
 print("Part One Answer:", min([abs(int(p.split()[0])) + abs(int(p.split()[1])) for p in wire_map_intersections]))
 
 min_combined_steps = 999999999999

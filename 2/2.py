@@ -7,21 +7,21 @@ with open("input", "r") as f:
 
 from itertools import permutations
 
+# Part Two 
 for noun, verb in permutations(range(100), 2):
     mem = org_mem.copy()
     mem[1] = noun
     mem[2] = verb
-    # print(mem, '\n')
 
     idx = 0
     while idx < len(mem):
         a, b = mem[mem[idx+1]], mem[mem[idx+2]]
-        addr = mem[idx+3]
+        store_addr = mem[idx+3]
 
         if mem[idx] == 1:
-            mem[addr] = a + b
+            mem[store_addr] = a + b
         elif mem[idx] == 2:
-            mem[addr] = a * b
+            mem[store_addr] = a * b
         elif mem[idx] == 99:
             break
         else:
