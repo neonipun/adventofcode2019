@@ -23,5 +23,21 @@ for N in range(136818, 685980):
 
 print("Part One Answer:", count)
 
+# Part Two
+count = 0 
+f.write("\n# PART TWO PASSWORDS\n")
+for n in passwords:
+    flag = 0
+    if 2 in map(n.count, n):
+        flag = 1
 
+    if flag:
+        f.write(n+"\n")
+        count += 1
+    else:
+        f.write("WRONG PASSWORD: "+n+"\n")
+
+f.close()
+
+print("Part Two Answer:", count)
         
